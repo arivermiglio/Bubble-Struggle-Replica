@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
@@ -35,7 +36,8 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
+            Debug.Log("YOU WON");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     // Destroy the old ball
     Destroy(gameObject);
