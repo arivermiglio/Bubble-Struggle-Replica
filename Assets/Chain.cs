@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chain : MonoBehaviour
 {
-    public static bool isFired;
+    public static bool IsFired;
 
     public Transform player;
 
@@ -12,17 +12,17 @@ public class Chain : MonoBehaviour
 
     private void Start()
     {
-        isFired = false;
+        IsFired = false;
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            isFired = true;
+            IsFired = true;
         }
 
-        if (isFired)
+        if (IsFired)
         {
             transform.localScale =transform.localScale +  Vector3.up * Time.deltaTime * speed;
         }
