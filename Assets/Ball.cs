@@ -26,10 +26,18 @@ public class Ball : MonoBehaviour
             // Quaternion.identity means no rotation
             // add tiny vectors to rb.position so the two new balls spawn in slightly
             // diffrent positions
-            Instantiate(nextBall, rb.position + Vector2.right / 4f, Quaternion.identity);
-            Instantiate(nextBall, rb.position + Vector2.left / 4f, Quaternion.identity);
+            GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4f, Quaternion.identity);
+            GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4f, Quaternion.identity);
+
+            // let the new balls have upward momentum to appear lively
+            ball1.GetComponent<Ball>().startForce = new Vector2(2f, 5f);
+            ball2.GetComponent<Ball>().startForce = new Vector2(-2f, 5f);
         }
-        // Destroy the old ball
-        Destroy(gameObject);
-    }
+        else
+        {
+            Debug.Log("Game Over");
+        }
+    // Destroy the old ball
+    Destroy(gameObject);
+}
 }

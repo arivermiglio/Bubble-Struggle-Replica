@@ -10,8 +10,9 @@ public class ChainCollision : MonoBehaviour
 
         if (col.tag == "Ball")
         {
+            // col refers to the old Ball obj
             // Split ball in two
-
+            col.GetComponent<Ball>().Split();
         }
     }
 }
